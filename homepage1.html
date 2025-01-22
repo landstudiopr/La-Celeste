@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Del Pueblo - Research</title>
+  <!-- Modern Font (Uber Move or you can pick something else) -->
+  <link href="https://fonts.googleapis.com/css2?family=Uber+Move:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Uber Move', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* NAVIGATION */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      background-color: #000;
+      z-index: 100;
+    }
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+    .logo-section img {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      margin-right: 0.75rem;
+      object-fit: cover;
+    }
+    .logo-section h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* MAIN HEADING */
+    main {
+      padding: 2rem;
+    }
+    .main-heading {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    /* HORIZONTAL CARDS SECTION */
+    .cards-container {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-behavior: smooth; /* for smoother scrolling */
+      padding-bottom: 1rem;
+    }
+    .card {
+      flex: 0 0 280px; /* fixed width so they appear as “cards” */
+      border-radius: 8px;
+      background-color: #111;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    /* You can replace these gradient backgrounds with actual images or other designs. */
+    .card:nth-child(1) {
+      background: linear-gradient(120deg, #FFADAD, #FF6493);
+    }
+    .card:nth-child(2) {
+      background: linear-gradient(120deg, #B8E1FF, #C6A3FF);
+    }
+    .card:nth-child(3) {
+      background: linear-gradient(120deg, #FFF6B7, #FDCB6E);
+    }
+    .card:nth-child(4) {
+      background: linear-gradient(120deg, #9CEBAF, #74EBD5);
+    }
+    .card-content {
+      padding: 1.2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .card-date {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* QUOTE DETAILS (toggle area) */
+    .quote-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1.2rem;
+      background-color: rgba(0,0,0,0.85);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+      overflow-y: auto;
+    }
+    .quote-text.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .quote-text p {
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .close-btn {
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+      border-radius: 4px;
+      padding: 0.5rem 0.7rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .close-btn:hover {
+      background: #222;
+    }
+  </style>
+
+  <script>
+    function toggleQuote(cardId) {
+      // Grab the .quote-text element inside the card
+      const quoteText = document.querySelector(`#${cardId} .quote-text`);
+      // Close all other open quotes
+      document.querySelectorAll('.quote-text').forEach(el => {
+        if (el !== quoteText) el.classList.remove('show');
+      });
+      // Toggle the selected one
+      quoteText.classList.toggle('show');
+    }
+
+    function closeQuote(cardId) {
+      const quoteText = document.querySelector(`#${cardId} .quote-text`);
+      quoteText.classList.remove('show');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="logo-section">
+      <!-- Replace with your own logo image if you prefer -->
+      <img src="foto.jpg" alt="Del Pueblo Logo" />
+      <h1>Del Pueblo</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Safety</a></li>
+        <li><a href="#">Company</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- Large heading, just like "Research" in the OpenAI style -->
+    <h2 class="main-heading">Research</h2>
+
+    <!-- Cards Container (Horizontal Scroll) -->
+    <div class="cards-container">
+
+      <!-- CARD 1 -->
+      <div class="card" id="card1" onclick="toggleQuote('card1')">
+        <div class="card-content">
+          <div class="card-date">Dec 20, 2024</div>
+          <div class="card-title">Sobre la Orden Administrativa</div>
+        </div>
+        <div class="quote-text">
+          <button class="close-btn" onclick="event.stopPropagation(); closeQuote('card1');">Close</button>
+          <p>“Esta orden lo que hace es recoger en parte el proyecto del Senado 1621 que fue sometido a la Asamblea Legislativa en el 2016...”</p>
+          <p>“Mis actuaciones responden únicas y exclusivamente a concretar un esfuerzo institucional de décadas...”</p>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card" id="card2" onclick="toggleQuote('card2')">
+        <div class="card-content">
+          <div class="card-date">Dec 5, 2024</div>
+          <div class="card-title">Justificación de las acciones</div>
+        </div>
+        <div class="quote-text">
+          <button class="close-btn" onclick="event.stopPropagation(); closeQuote('card2');">Close</button>
+          <p>“Como una persona con una carrera militar amplia, estoy acostumbrado a tomar acciones rápidas...”</p>
+          <p>“Hemos tomado acciones decisivas para frenar las construcciones ilegales...”</p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card" id="card3" onclick="toggleQuote('card3')">
+        <div class="card-content">
+          <div class="card-date">Nov 15, 2024</div>
+          <div class="card-title">Crisis ambiental en La Parguera</div>
+        </div>
+        <div class="quote-text">
+          <button class="close-btn" onclick="event.stopPropagation(); closeQuote('card3');">Close</button>
+          <p>“La Reserva Natural de La Parguera ha sido históricamente un área expuesta a diversas actividades...”</p>
+          <p>“Esta orden busca detener las construcciones fuera de la huella de ocupación...”</p>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="card" id="card4" onclick="toggleQuote('card4')">
+        <div class="card-content">
+          <div class="card-date">Oct 27, 2024</div>
+          <div class="card-title">Compromiso con la gestión ambiental</div>
+        </div>
+        <div class="quote-text">
+          <button class="close-btn" onclick="event.stopPropagation(); closeQuote('card4');">Close</button>
+          <p>“Por primera vez hemos tomado acciones decisivas para frenar las construcciones ilegales.”</p>
+          <p>“Este enfoque integral busca transformar la Reserva Natural de La Parguera en un modelo...”</p>
+          <p>“Rompimos la inercia. Hoy hay un marco legal claro...”</p>
+        </div>
+      </div>
+
+      <!-- You can add more cards in the same pattern -->
+
+    </div> <!-- end of cards-container -->
+  </main>
+
+</body>
+</html>

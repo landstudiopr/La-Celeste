@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Del Pueblo - Mobile First</title>
+  <!-- Modern Font (Uber Move or another) -->
+  <link href="https://fonts.googleapis.com/css2?family=Uber+Move:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Uber Move', sans-serif;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER NAVIGATION */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #222;
+      background-color: #000;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+    .logo-section img {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      margin-right: 0.75rem;
+      object-fit: cover;
+    }
+    .logo-section h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      padding: 1rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .main-heading {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    /* CARDS LAYOUT (MOBILE FIRST) */
+    .cards-container {
+      display: grid;
+      grid-template-columns: 1fr; /* Single column on mobile */
+      gap: 1rem;
+    }
+    /* Medium screens (e.g. tablets) -> 2 columns */
+    @media (min-width: 600px) {
+      .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    /* Larger screens -> 3 columns */
+    @media (min-width: 992px) {
+      .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* CARD STYLES */
+    .card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #222; /* fallback if image fails */
+      cursor: pointer;
+    }
+    .card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    /* Title overlay */
+    .card .card-title {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      font-weight: 600;
+      font-size: 1rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-section">
+      <!-- Replace "foto.jpg" with your actual logo image -->
+      <img src="foto.jpg" alt="Del Pueblo Logo" />
+      <h1>Del Pueblo</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Safety</a></li>
+        <li><a href="#">Company</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <h2 class="main-heading">Research</h2>
+
+    <!-- CARDS CONTAINER -->
+    <div class="cards-container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="1.jpg" alt="1" />
+        <div class="card-title">Sobre la Orden Administrativa</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="2.jpg" alt="2" />
+        <div class="card-title">Justificación de las acciones</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="3.jpg" alt="3" />
+        <div class="card-title">Crisis ambiental en La Parguera</div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="4.jpg" alt="4" />
+        <div class="card-title">Compromiso medioambiental</div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card">
+        <img src="5.jpg" alt="5" />
+        <div class="card-title">Medidas y metas futuras</div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card">
+        <img src="6.jpg" alt="6" />
+        <div class="card-title">Enfrentando críticas</div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="card">
+        <img src="7.jpg" alt="7" />
+        <div class="card-title">Más sobre el proyecto</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
